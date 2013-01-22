@@ -14,9 +14,7 @@
          <property name="hibernate.connection.username" value="sa"/>
          <property name="hibernate.connection.password" value=""/>
          <property name="hibernate.connection.url" value="jdbc:hsqldb:hsql://localhost/"/>
-         <property name="hibernate.max_fetch_depth" value="3"/>
-          <property name="hibernate.show_sql" value="true"/>
-       
+         <property name="hibernate.max_fetch_depth" value="3"/>       
          <!-- cache configuration -->
          <!-- <property name="hibernate.ejb.classcache.org.hibernate.ejb.test.Item" value="read-write"/>-->
          <!-- <property name="hibernate.ejb.collectioncache.org.hibernate.ejb.test.Item.distributors" value="read-write, RegionName"/>-->

@@ -13,11 +13,11 @@ import javax.persistence.TypedQuery;
 import fr.istic.tpjpa.domain.Department;
 import fr.istic.tpjpa.domain.Employee;
 
-public class N1Select {
+public class Joinfetch {
 
 	private EntityManager manager;
 
-	public N1Select(EntityManager manager) {
+	public Joinfetch(EntityManager manager) {
 		this.manager = manager;
 	}
 
@@ -28,13 +28,12 @@ public class N1Select {
 		EntityManagerFactory factory = Persistence
 				.createEntityManagerFactory("withoutcreate");
 		EntityManager manager = factory.createEntityManager();
-		N1Select test = new N1Select(manager);
+		Joinfetch test = new Joinfetch(manager);
 
 		
-		TypedQuery<Department> q = test.manager.createQuery("select d from Department d",Department.class);
+		TypedQuery<Department> q = test.manager.createQuery("select distinct d from Department d join fetch d.employees e",Department.class);
 		long start = System.currentTimeMillis();
 		List<Department> res = q.getResultList();
-		
 		
 		for (Department d : res){
 			for (Employee e : d.getEmployees()){

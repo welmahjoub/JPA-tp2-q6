@@ -29,19 +29,17 @@ public class JpaTest {
 
 		// TODO create entity
 
-		for (int j = 0; j < 100; j++) {
+		for (int j = 0; j < 5000; j++) {
+			
 			EntityTransaction tx = manager.getTransaction();
 			tx.begin();
 			Department d = new Department("dep"+j);
 			manager.persist(d);
-			for (int i = 0; i < 10000; i++) {
+			for (int i = 0; i < 2; i++) {
 				Employee e = new Employee("emp_"+j + "_"+i);
-				
 				manager.persist(e);
 				e.setDepartment(d);
 				d.getEmployees().add(e);
-				
-				
 			}
 			tx.commit();
 			
